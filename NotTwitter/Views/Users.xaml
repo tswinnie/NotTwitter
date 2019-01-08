@@ -1,0 +1,35 @@
+﻿<Page
+    x:Class="NotTwitter.Views.Users"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:NotTwitter.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm ="using:NotTwitter.Models"
+    mc:Ignorable="d" Loaded="Page_Loaded"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Grid.RowDefinitions >
+            <RowDefinition  Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <ScrollViewer>
+            <ListView Name="MyListView" Grid.Row="0" Grid.Column="0" ItemsSource="{x:Bind ViewModels.Users}">
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="vm:User">
+                        <StackPanel>
+                            <TextBlock Name="PostTitle" Text="{x:Bind name}"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </ScrollViewer>
+
+    </Grid>
+
+</Page>

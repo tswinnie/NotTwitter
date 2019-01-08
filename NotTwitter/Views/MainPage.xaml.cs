@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NotTwitter.Views;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -26,37 +27,13 @@ namespace NotTwitter
         public MainPage()
         {
             this.InitializeComponent();
+            //load home page into frame
+            MainContent.Navigate(typeof(Home));
+            PageTitle.Text = "Home";
+            //hide back button
+            BackButton.Visibility = Visibility.Collapsed;
         }
-
-        private void Home_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Users_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Posts_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Comments_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Photos_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Albums_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
+        
 
         private void MenuButton_Click(object sender, RoutedEventArgs e)
         {
@@ -66,6 +43,10 @@ namespace NotTwitter
 
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
+            if (MainContent.CanGoBack)
+            {
+                MainContent.GoBack();
+            }
 
         }
 
@@ -81,6 +62,34 @@ namespace NotTwitter
 
         private void BackButton_GettingFocus_1(UIElement sender, GettingFocusEventArgs args)
         {
+
+        }
+
+        private void MenuList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+            if (HomeListItem.IsSelected)
+            {
+                MainContent.Navigate(typeof(Home));
+                PageTitle.Text = "Home";
+                BackButton.Visibility = Visibility.Collapsed;
+
+            }
+            else if (UserListItem.IsSelected)
+            {
+                MainContent.Navigate(typeof(Users));
+                PageTitle.Text = "Users";
+                BackButton.Visibility = Visibility.Visible;
+
+            }
+            else if (PhotosListItem.IsSelected)
+            {
+                MainContent.Navigate(typeof(Photos));
+                PageTitle.Text = "Photos";
+                BackButton.Visibility = Visibility.Visible;
+
+            }
+
 
         }
     }

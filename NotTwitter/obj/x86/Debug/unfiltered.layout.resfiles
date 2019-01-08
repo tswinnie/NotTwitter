@@ -8,5 +8,11 @@ Assets\StoreLogo.png
 Assets\Wide310x150Logo.scale-200.png
 App.xbf
 NotTwitter.xr.xml
+Views\Albums.xbf
+Views\Comments.xbf
+Views\Home.xbf
 Views\MainPage.xbf
+Views\Photos.xbf
+Views\Posts.xbf
+Views\Users.xbf
 Properties\Default.rd.xml

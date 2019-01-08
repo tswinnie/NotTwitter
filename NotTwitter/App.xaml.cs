@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NotTwitter.Configurations;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -29,6 +30,8 @@ namespace NotTwitter
         public App()
         {
             this.InitializeComponent();
+            //init startup 
+            StartUp.Configure();
             this.Suspending += OnSuspending;
         }
 
